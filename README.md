@@ -1,8 +1,11 @@
 # Cylinder_Mesh_simpleFoam
 
+OpenFOAMで使えるメッシュ生成法を色々試しました。
+
 ## 軸対称モデル
 - Cylinder_axialSymmetry_laminar
 - Cylinder_axialSymmetry_turbulence
+![image](https://user-images.githubusercontent.com/36812492/227681981-403d2781-7af2-46cd-9090-15451c3c8c85.png)
 
 ```bash
 blockMesh
@@ -16,6 +19,7 @@ postProcess -func sampleDict -latestTime
 ## blockMesh
 - Cylinder_blockMesh_laminar
 - Cylinder_blockMesh_turbulence
+![image](https://user-images.githubusercontent.com/36812492/227681948-daa52d3b-952a-4afe-afbc-3918745fa17e.png)
 
 ```bash
 blockMesh
@@ -27,6 +31,7 @@ postProcess -func sampleDict -latestTime
 ## cfMesh
 - Cylinder_cfMesh_laminar
 - Cylinder_cfMesh_turbulence
+![image](https://user-images.githubusercontent.com/36812492/227681968-fa560092-a465-4dd7-ac7d-2329e76400f3.png)
 
 cfMeshはcartesianMeshで別フォルダで作成しています。
 
@@ -41,6 +46,7 @@ postProcess -func sampleDict -latestTime
 ## snappyHexMesh
 - Cylinder_snappyHexMesh_laminar
 - Cylinder_snappyHexMesh_turbulence
+![image](https://user-images.githubusercontent.com/36812492/227681954-850b9293-b552-4a97-aafd-d225bd76baf8.png)
 
 ```bash
 surfaceFeatureExtract
