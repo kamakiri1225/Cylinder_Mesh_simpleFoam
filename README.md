@@ -1,12 +1,10 @@
 # Cylinder_Mesh_simpleFoam
 
-## 実行方法
-
 ## 軸対称モデル
 - Cylinder_axialSymmetry_laminar
 - Cylinder_axialSymmetry_turbulence
 
-```sh
+```bash
 blockMesh
 extrudeMesh
 createPatch -overwrite
@@ -18,7 +16,7 @@ postProcess -func sampleDict -latestTime
 - Cylinder_blockMesh_laminar
 - Cylinder_blockMesh_turbulence
 
-```sh
+```bash
 blockMesh
 simpleFoam
 postProcess -func sampleDict -latestTime
@@ -32,7 +30,7 @@ cfMeshはcartesianMeshで別フォルダで作成しています。
 
 作り方はブログ記事をご参考ください。
 
-```sh
+```bash
 simpleFoam
 postProcess -func sampleDict -latestTime
 ```
@@ -41,7 +39,7 @@ postProcess -func sampleDict -latestTime
 - Cylinder_snappyHexMesh_laminar
 - Cylinder_snappyHexMesh_turbulence
 
-```sh
+```bash
 surfaceFeatureExtract
 blockMesh
 snappyHexMesh -overwrite
