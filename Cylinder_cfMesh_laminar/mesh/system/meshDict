@@ -1,0 +1,90 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                |
+| \\      /  F ield         | cfMesh: A library for mesh generation          |
+|  \\    /   O peration     |                                                |
+|   \\  /    A nd           | Author: Franjo Juretic                         |
+|    \\/     M anipulation  | E-mail: franjo.juretic@c-fields.com            |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version   2.0;
+    format    ascii;
+    class     dictionary;
+    location  "system";
+    object    meshDict;
+}
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+surfaceFile "model_m.fms";
+
+//minCellSize 1.0;
+
+maxCellSize 0.0025;
+
+//boundaryCellSize 0.01;
+
+localRefinement
+{
+    "inlet"
+    {
+        cellSize 0.001;
+    }
+
+    "outlet"
+    {
+        cellSize 0.001;
+    }
+
+    "sideWall"
+    {
+        cellSize 0.001;
+    }
+}
+
+boundaryLayers
+{
+//    nLayers 3;
+//    thicknessRatio 1.2;
+//    maxFirstLayerThickness 0.5;
+
+    patchBoundaryLayers
+    {
+        "(inlet|outlet|sideWall).*"
+        {
+            nLayers           5;
+
+            thicknessRatio    1.2;
+
+            maxFirstLayerThickness 0.001;
+
+            allowDiscontinuity 0;
+        }
+    }
+
+    optimiseLayer 1;
+}
+
+// renameBoundary
+// {
+//     defaultName fixedWalls;
+//     defaultType wall;
+
+//     newPatchNames
+//     {
+//         "inlet.*"
+//         {
+//             type    patch;
+//             newName inlet;
+//         }
+
+//         "outlet.*"
+//         {
+//             type    patch;
+//             newName outlet;
+//         }
+//     }
+// }
+
+
+// ************************************************************************* //
